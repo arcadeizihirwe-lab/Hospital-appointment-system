@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hospital Appointment Page</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background-image:  linear-gradient(rgba(0,0,0,0.6),
+    rgba(124, 115, 115, 0.6)),
+    url("hosp picture.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;;
+}
+
+header{
+    background:#0077b6;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+.container{
+    width:80%;
+    margin:auto;
+    padding:20px;
+}
+
+.appointment-box{
+    background:rgba(59, 34, 28, 0.5);
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+h2{
+    color:#0077b6;
+}
+
+input, select, textarea{
+    width:100%;
+    padding:12px;
+    margin-top:8px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    font-size:15px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#0077b6;
+    color:white;
+    border:none;
+    border-radius:5px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#023e8a;
+}
+
+.info{
+    margin-top:20px;
+    background:#abc1d1;
+    padding:15px;
+    border-radius:10px;
+}
+
+footer{
+    background:#0077b6;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:20px;
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+    <h1> quickcare appointment system</h1>
+    <p>Book Your Appointment Easily</p>
+</header>
+
+<div class="container">
+
+    <div class="appointment-box">
+
+        <h2>Appointment Form</h2>
+
+        <form>
+
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter your full name" required>
+
+            <label>Email Address</label>
+            <input type="email" placeholder="Enter your email" required>
+
+            <label>Phone Number</label>
+            <input type="tel" placeholder="Enter your phone number" required>
+
+            <label>Select Department</label>
+            <select required>
+                <option value="">Choose Department</option>
+                <option>General Consultation</option>
+                <option>Cardiology</option>
+                <option>Maternity</option>
+                <option>Laboratory</option>
+                <option>Dental Care</option>
+            </select>
+            <label>Select Doctor</label>
+      <select required>
+          <option value="">Choose Doctor</option>
+
+           <option>Dr. John Nkurunziza - Sunrise Hospital</option>
+           <option>Dr. Alice Uwimana - King Faisal Hospital</option>
+           <option>Dr. Jean Paul - CHUK Hospital</option>
+           <option>Dr. Marie Claire - Muhima Hospital</option>
+            <option>Dr. David Habimana - Rwanda Military Hospital</option>
+
+</select>
+
+            <label>Appointment Date</label>
+            <input type="date" required>
+
+            <label>Appointment Time</label>
+            <input type="time" required>
+
+            <label>Additional Message</label>
+            <textarea rows="4" placeholder="Write your message here"></textarea>
+
+           <a href="hospital.html" class="btn"> <button type="submit">Book Appointment</button> </a>
+
+        </form>
+
+        <div class="info">
+            <h2> Thanks for choosing quickcare appointment system</h2>
+            <p>
+        
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    <p> quickcare appointment system. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

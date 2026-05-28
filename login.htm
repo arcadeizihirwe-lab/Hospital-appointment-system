@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Login</title>
+	<link rel="stylesheet" href="styles.css">
+	<meta name="color-scheme" content="sky blue">
+</head>
+<body>
+	<main class="page">
+		<div class="card">
+			<header class="card-header">
+				<h1>Welcome Back</h1>
+				<p class="muted">Sign in to continue to your account</p>
+			</header>
+
+<form id="loginForm" class="form" action="doctorAppoint.html" method="get">
+				<label for="email">Email</label>
+				<input id="email" name="email" type="email" inputmode="email" required placeholder="you@example.com">
+
+				<label for="password">Password</label>
+				<div class="password-row">
+					<input id="password" name="password" type="password" required placeholder="Enter your password">
+					<button type="button" class="toggle" aria-label="Show password" title="Show password">Show</button>
+				</div>
+
+				<div class="row-between">
+					<label class="checkbox">
+						<input type="checkbox" name="remember">
+						<span>Remember me</span>
+					</label>
+					<a class="link" href="#">Forgot?</a>
+				</div>
+
+				<button class="btn primary" type="submit">Sign In</button>
+
+				<p class="small muted">Don't have an account? <a class="link" href="welcome_page.html">Register</a></p>
+			</form>
+		</div>
+	</main>
+
+	<script>
+		(function(){
+			const toggle = document.querySelector('.toggle');
+			const pwd = document.getElementById('password');
+			toggle.addEventListener('click', ()=>{
+				const isPwd = pwd.type === 'password';
+				pwd.type = isPwd ? 'text' : 'password';
+				toggle.textContent = isPwd ? 'Hide' : 'Show';
+			});
+		})();
+	</script>
+</body>
+</html>
+

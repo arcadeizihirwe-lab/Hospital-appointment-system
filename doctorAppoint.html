@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { background: linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%); }
+    .dashboard { max-width: 920px; margin: 40px auto; padding: 28px; background: #fff; border-radius: 18px; box-shadow: 0 24px 70px rgba(15,23,42,0.12); }
+    .dashboard h1 { margin: 0 0 10px; font-size: 2rem; }
+    .dashboard p { color: #4b5563; line-height: 1.75; margin-bottom: 26px; }
+    .dashboard .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .dashboard .tile { border: 1px solid #e5e7eb; border-radius: 16px; padding: 22px; background: #f8fafc; }
+    .dashboard .tile h2 { margin: 0 0 10px; font-size: 1.1rem; }
+    .dashboard .tile p { margin: 0 0 16px; color: #6b7280; }
+    .dashboard .tile .btn { display: inline-block; text-decoration: none; }
+    .dashboard .btn.primary { width: auto; padding: 10px 16px; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="dashboard">
+      <h1>Doctor Dashboard</h1>
+      <p>Welcome! Your sign-in was successful. Use the dashboard links below to manage appointments, view patient pages, or return home.</p>
+      <div class="grid">
+        <div class="tile">
+          <h2>view New Appointment</h2>
+          <p>Schedule a patient appointment quickly and easily.</p>
+          <a class="btn primary" href="appointment.html">Appointments</a>
+         
+          <a class="btn primary" href="welcome_page.html">Back to Home</a>
+        </div>
+        <div class="tile">
+
+        <div class="tile">
+          <h2>Appointment 1</h2>
+          <p>No appointment found</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
