@@ -17,7 +17,7 @@ body{
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
-    background-attachment:fixed;;
+    background-attachment:fixed;
 }
 
 header{
@@ -28,9 +28,10 @@ header{
 }
 
 .container{
-    width:80%;
+    width:90%;
+    max-width:900px;
     margin:auto;
-    padding:20px;
+    padding:15px;
 }
 
 .appointment-box{
@@ -52,6 +53,7 @@ input, select, textarea{
     border:1px solid #ccc;
     border-radius:5px;
     font-size:15px;
+    box-sizing:border-box;
 }
 
 button{
@@ -63,6 +65,7 @@ button{
     border-radius:5px;
     font-size:16px;
     cursor:pointer;
+    transition:0.3s;
 }
 
 button:hover{
@@ -82,6 +85,81 @@ footer{
     text-align:center;
     padding:15px;
     margin-top:20px;
+}
+
+@media(max-width:768px){
+    .container{
+        width:95%;
+        padding:10px;
+    }
+    .appointment-box{
+        padding:15px;
+    }
+    h2{
+        font-size:20px;
+    }
+    input, select, textarea{
+        padding:10px;
+        font-size:14px;
+    }
+    button{
+        padding:10px;
+        font-size:14px;
+    }
+}
+
+@media(max-width:480px){
+    header{
+        padding:15px;
+    }
+    header h1{
+        font-size:18px;
+        margin:0;
+    }
+    header p{
+        font-size:13px;
+        margin:5px 0 0 0;
+    }
+    .container{
+        width:100%;
+        margin:0;
+        padding:8px;
+    }
+    .appointment-box{
+        padding:12px;
+        margin:0;
+    }
+    h2{
+        font-size:16px;
+        margin-bottom:10px;
+    }
+    label{
+        font-size:13px;
+    }
+    input, select, textarea{
+        padding:10px;
+        margin-top:6px;
+        margin-bottom:12px;
+        font-size:13px;
+    }
+    button{
+        padding:10px;
+        font-size:13px;
+    }
+    .info{
+        padding:12px;
+        margin-top:15px;
+    }
+    .info h2{
+        font-size:14px;
+    }
+    .info p{
+        font-size:12px;
+    }
+    footer{
+        padding:10px;
+        font-size:12px;
+    }
 }
 
 </style>
