@@ -116,12 +116,17 @@ body{
 
 @media(max-width:480px){
     body{
-        height:auto;
+        min-height:100vh;
         padding:10px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
     }
     .container{
         margin:auto;
         border-radius:15px;
+        width:100%;
+        max-width:420px;
     }
     .left, .right{
         padding:20px 15px;
