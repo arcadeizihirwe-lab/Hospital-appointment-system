@@ -79,6 +79,11 @@ button:hover{
     border-radius:10px;
 }
 
+#formMessage{
+    display:none;
+    margin-top:15px;
+}
+
 footer{
     background:#0077b6;
     color:white;
@@ -219,9 +224,11 @@ footer{
             <label>Additional Message</label>
             <textarea rows="4" placeholder="Write your message here"></textarea>
 
-           <a href="hospital.html" class="btn"> <button type="submit">Book Appointment</button> </a>
+            <button type="submit">Book Appointment</button>
 
         </form>
+
+        <div id="formMessage" class="info"></div>
 
         <div class="info">
             <h2> Thanks for choosing quickcare appointment system</h2>
@@ -237,6 +244,46 @@ footer{
 <footer>
     <p> quickcare appointment system. All Rights Reserved.</p>
 </footer>
+
+<script>
+const form = document.querySelector('form');
+const formMessage = document.getElementById('formMessage');
+const dateInput = document.querySelector('input[type="date"]');
+
+if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+}
+
+if (form) {
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const requiredFields = form.querySelectorAll('input[required], select[required], textarea[required]');
+        let isValid = true;
+
+        requiredFields.forEach(function (field) {
+            if (!field.value.trim()) {
+                isValid = false;
+            }
+        });
+
+        if (!isValid) {
+            formMessage.style.display = 'block';
+            formMessage.style.background = '#f8d7da';
+            formMessage.style.color = '#721c24';
+            formMessage.innerHTML = '<h2>Please fill in all required fields.</h2>';
+            return;
+        }
+
+        formMessage.style.display = 'block';
+        formMessage.style.background = '#d4edda';
+        formMessage.style.color = '#155724';
+        formMessage.innerHTML = '<h2>Appointment booked successfully!</h2><p>Thank you for choosing QuickCare. We will contact you shortly.</p>';
+        form.reset();
+    });
+}
+</script>
 
 </body>
 </html>
