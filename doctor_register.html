@@ -1,173 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Doctor Registration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Registration</title>
 
-<style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
+    <style>
 
-body{
-     background-image:  linear-gradient(rgba(0,0,0,0.6),
-    rgba(124, 115, 115, 0.6)),
-    url("hosp picture.jpg");
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:'Segoe UI',sans-serif;
+    }
 
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    background-attachment:fixed;;
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-}
+    body{
+        background:linear-gradient(rgba(0,80,120,.75),rgba(0,80,120,.75)),
+        url("hosp picture.jpg");
+        background-size:cover;
+        background-position:center;
+        min-height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:flex-start;
+        padding:100px 30px 30px;
+    }
 
-.container{
-    width:100%;
-    max-width:480px;
-    background:white;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 15px 30px rgba(0,0,0,0.3);
-}
+    nav{
+        position:fixed;
+        top:0;
+        left:0;
+        right:0;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:18px 80px;
+        background:rgba(0,90,150,0.95);
+        z-index:50;
+    }
 
-h2{
-    text-align:center;
-    color:#0077b6;
-    margin-bottom:5px;
-    font-size:24px;
-}
+    .logo{
+        color:white;
+        font-size:30px;
+        font-weight:bold;
+    }
 
-p{
-    text-align:center;
-    color:gray;
-    margin-bottom:25px;
-    font-size:14px;
-}
+    nav ul{
+        display:flex;
+        list-style:none;
+    }
 
-label{
-    display:block;
-    margin-top:12px;
-    margin-bottom:6px;
-    font-weight:bold;
-    color:#333;
-}
+    nav ul li{
+        margin-left:25px;
+    }
 
-input, select{
-    width:100%;
-    padding:12px;
-    border:1px solid #ddd;
-    border-radius:10px;
-    font-size:14px;
-    transition:0.3s;
-    box-sizing:border-box;
-}
+    nav ul li a{
+        color:white;
+        text-decoration:none;
+        font-size:18px;
+        transition:.3s;
+    }
 
-input:focus, select:focus{
-    border-color:#0077b6;
-    outline:none;
-    box-shadow:0 0 5px rgba(0,119,182,0.4);
-}
+    nav ul li a:hover{
+        color:gold;
+    }
 
-button{
-    width:100%;
-    margin-top:20px;
-    padding:14px;
-    background:linear-gradient(90deg,#0077b6,#00b4d8);
-    border:none;
-    color:white;
-    font-size:16px;
-    border-radius:12px;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-button:hover{
-    transform:translateY(-2px);
-    box-shadow:0 8px 15px rgba(0,0,0,0.2);
-}
-
-@media(max-width:480px){
     .container{
-        padding:20px;
-        border-radius:12px;
+        width:950px;
+        max-width:100%;
+        display:grid;
+        grid-template-columns:40% 60%;
+        background:rgba(255,255,255,.15);
+        backdrop-filter:blur(15px);
+        border-radius:20px;
+        overflow:hidden;
+        box-shadow:0 20px 40px rgba(0,0,0,.4);
     }
-    h2{
-        font-size:20px;
+
+
+    .left{
+        background:linear-gradient(135deg,#0099ff,#004aad);
+        color:white;
+        padding:40px;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
     }
-    input, select{
-        padding:10px;
-        font-size:16px;
+
+    .left i{
+        font-size:90px;
+        margin-bottom:20px;
     }
+
+    .left h1{
+        font-size:34px;
+        margin-bottom:15px;
+    }
+
+    .left p{
+        line-height:1.8;
+        font-size:17px;
+    }
+
+    /* RIGHT SIDE */
+
+    .right{
+        background:white;
+        padding:40px;
+    }
+
+    .right h2{
+        color:#004aad;
+        margin-bottom:10px;
+    }
+
+    .right p{
+        color:gray;
+        margin-bottom:25px;
+    }
+
+    .form-group{
+        margin-bottom:18px;
+    }
+
+    .row{
+        display:flex;
+        gap:15px;
+    }
+
+    .row .form-group{
+        flex:1;
+    }
+
+    label{
+        display:block;
+        margin-bottom:7px;
+        font-weight:600;
+        color:#444;
+    }
+
+    .input-box{
+        position:relative;
+    }
+
+    .input-box i{
+        position:absolute;
+        left:15px;
+        top:15px;
+        color:#008cff;
+    }
+
+    .input-box input,
+    .input-box select,
+    .input-box textarea{
+        width:100%;
+        padding:14px 14px 14px 45px;
+        border:1px solid #ccc;
+        border-radius:10px;
+        font-size:15px;
+        transition:.3s;
+    }
+
+    .input-box textarea{
+        resize:none;
+    }
+
+    .input-box input:focus,
+    .input-box select:focus,
+    .input-box textarea:focus{
+        outline:none;
+        border-color:#008cff;
+        box-shadow:0 0 8px rgba(0,140,255,.3);
+    }
+
     button{
-        padding:12px;
-        font-size:14px;
+        width:100%;
+        padding:15px;
+        border:none;
+        border-radius:10px;
+        background:#008cff;
+        color:white;
+        font-size:18px;
+        cursor:pointer;
+        transition:.3s;
     }
-}
 
+    button:hover{
+        background:#005ecb;
+        transform:translateY(-2px);
+    }
 
-</style>
+    .login{
+        margin-top:20px;
+        text-align:center;
+    }
 
-</head>
+    .login a{
+        color:#008cff;
+        text-decoration:none;
+        font-weight:bold;
+    }
 
-<body>
+    .login a:hover{
+        text-decoration:underline;
+    }
 
-<div class="container">
+    @media(max-width:850px){
 
-<h2> Doctor Registration</h2>
-<p>Create your account to manage appointments</p>
+    .container{
+        grid-template-columns:1fr;
+    }
 
-<form>
+    .left{
+        padding:30px;
+    }
 
-<label>Full Name</label>
-<input type="text" placeholder="Enter full name" required>
+    .row{
+        flex-direction:column;
+    }
 
-<label>Email Address</label>
-<input type="email" placeholder="Enter email address" required>
+    }
 
-<label>Phone Number</label>
-<input type="tel" placeholder="Enter phone number" required>
+    </style>
 
-<label>Specialization</label>
-<select required>
-    <option value="">Select specialization</option>
-    <option>General Physician</option>
-    <option>Cardiologist</option>
-    <option>Dentist</option>
-    <option>Pediatrician</option>
-    <option>Surgeon</option>
-</select>
+    </head>
+    <body>
 
-<label>Hospital</label>
-<select required>
-    <option value="">Select hospital</option>
-    <option>Sunrise Private Hospital</option>
-    <option>King Faisal Hospital</option>
-    <option>CHUK Hospital</option>
-    <option>Muhima Hospital</option>
-    <option>Rwanda Military Hospital</option>
-</select>
+    <nav>
 
-<label>password</label>
-<input type="password" placeholder="Create password" required>
+        <div class="logo">
+            🏥HOSPITAL  APPOINTMENT  SYSTEM
+        </div>
 
-<label>Confirm Password</label>
-<input type="password" placeholder="Confirm password" required>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="doctor_login.html">Doctors</a></li>
+            <li><a href="patient_register.html">patients</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
 
-<button type="submit"><a href="welcome_page.html">Register</a></button>
+    </nav>
 
-</form>
+    <div class="container">
 
+    <div class="left">
 
-</div>
+    
 
-</body>
-</html>
+    <h1>Join Our Medical Team</h1>
+
+    <p>
+    Register as a certified doctor to manage patient appointments,
+    view schedules, and provide better healthcare services through our
+    Hospital Appointment System.
+    </p>
+
+    </div>
+
+    <div class="right">
+
+    <h2>Doctor Registration</h2>
+    <p>Create your professional account</p>
+
+    <form>
+
+    <div class="row">
+
+    <div class="form-group">
+    <label>First Name</label>
+    <div class="input-box">
+    <i class="fa fa-user"></i>
+    <input type="text" placeholder="First Name" required>
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label>Last Name</label>
+    <div class="input-box">
+    <i class="fa fa-user"></i>
+    <input type="text" placeholder="Last Name" required>
+    </div>
+    </div>
+
+    </div>
+
+    <div class="row">
+
+    <div class="form-group">
+    <label>Email</label>
+    <div class="input-box">
+    <i class="fa fa-envelope"></i>
+    <input type="email" placeholder="doctor@email.com" required>
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label>Phone</label>
+    <div class="input-box">
+    <i class="fa fa-phone"></i>
+    <input type="tel" placeholder="+250..." required>
+    </div>
+    </div>
+
+    </div>
+
+    <div class="row">
+
+    <div class="form-group">
+    <label>Gender</label>
+    <div class="input-box">
+    <i class="fa fa-venus-mars"></i>
+    <select required>
+    <option>Select Gender</option>
+    <option>Male</option>
+    <option>Female</option>
+    </select>
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label>Specialization</label>
+    <div class="input-box">
+    <i class="fa-solid fa-stethoscope"></i>
+    <select required>
+    <option>Select Department</option>
+    <option>General Medicine</option>
+    <option>Cardiology</option>
+    <option>Pediatrics</option>
+    <option>Neurology</option>
+    <option>Dermatology</option>
+    <option>Orthopedics</option>
+    <option>Gynecology</option>
+    <option>Radiology</option>
+    </select>
+    </div>
+    </div>
+
+    </div>
+
+    <div class="form-group">
+    <label>Medical License Number</label>
+    <div class="input-box">
+    <i class="fa-solid fa-id-card"></i>
+    <input type="text" placeholder="License Number" required>
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label>Hospital Address</label>
+    <div class="input-box">
+    <i class="fa-solid fa-location-dot"></i>
+    <textarea rows="3" placeholder="Hospital Address"></textarea>
+    </div>
+    </div>
+
+    <div class="row">
+
+    <div class="form-group">
+    <label>Password</label>
+    <div class="input-box">
+    <i class="fa fa-lock"></i>
+    <input type="password" placeholder="Password" required>
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label>Confirm Password</label>
+    <div class="input-box">
+    <i class="fa fa-lock"></i>
+    <input type="password" placeholder="Confirm Password" required>
+    </div>
+    </div>
+
+    </div>
+
+    <button type="submit">
+    <i class="fa-solid fa-user-plus"></i> Register Now
+    </button>
+
+    <div class="login">
+    Already have an account?
+    <a href="doctor_login.html">Login Here</a>
+    </div>
+
+    </form>
+
+    </div>
+
+    </div>
+
+    </body>
+    </html>

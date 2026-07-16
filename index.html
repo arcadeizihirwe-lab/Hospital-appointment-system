@@ -1,206 +1,203 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hospital Appointment System</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial;
-}
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
 
-body{
-      background-image:  linear-gradient(rgba(131, 129, 129, 0.6),
-    rgba(77, 75, 75, 0.6)),
-    url("hosp picture.jpg");
+        body{
+            background: url("hosp picture.jpg") no-repeat center center/cover;
+            background-size: cover;
+            background-attachment: fixed;
+            height:100vh;
+        }
 
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    background-attachment:fixed;;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
+        .overlay{
+            background:rgba(0,0,0,0.6);
+            width:100%;
+            min-height:100vh;
+            padding-top:80px; /* space for fixed header */
+        }
 
-.container{
-    width:90%;
-    max-width:850px;
-    background:white;
-    border-radius:20px;
-    overflow:hidden;
-    display:flex;
-    flex-wrap:wrap;
-    box-shadow:0 10px 30px rgba(0,0,0,0.2);
-}
+        nav{
+            position:fixed;
+            top:0;
+            left:0;
+            right:0;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:18px 80px;
+            background:rgba(0,90,150,0.95);
+            z-index:50;
+        }
 
-.left{
-    width:50%;
-    background:#0077ff;
-    color:white;
-    padding:40px 30px;
-}
+        .logo{
+            color:white;
+            font-size:30px;
+            font-weight:bold;
+        }
 
-.left h1{
-    font-size:28px;
-    margin-bottom:20px;
-}
+        nav ul{
+            display:flex;
+            list-style:none;
+        }
 
-.left p{
-    font-size:16px;
-    line-height:24px;
-}
+        nav ul li{
+            margin-left:25px;
+        }
 
-.right{
-    width:50%;
-    padding:40px 30px;
-    text-align:center;
-}
+        nav ul li a{
+            color:white;
+            text-decoration:none;
+            font-size:18px;
+            transition:.3s;
+        }
 
-.right h2{
-    color:#0077ff;
-    margin-bottom:15px;
-}
+        nav ul li a:hover{
+            color:gold;
+        }
 
-.right p{
-    color:gray;
-    margin-bottom:30px;
-}
+        .content{
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            color:white;
+            height:80vh;
+            padding:20px;
+        }
 
-.btn{
-    display:block;
-    width:100%;
-    padding:12px;
-    margin:15px 0;
-    text-decoration:none;
-    background:#0077ff;
-    color:white;
-    border-radius:10px;
-    font-size:16px;
-    transition:0.3s;
-}
+        .content h1{
+            font-size:55px;
+            margin-bottom:20px;
+        }
 
-.btn:hover{
-    background:#0057cc;
-    transform:translateY(-3px);
-}
+        .content p{
+            font-size:22px;
+            max-width:700px;
+            line-height:1.6;
+            margin-bottom:30px;
+        }
 
-.footer{
-    margin-top:30px;
-    color:gray;
-}
+        .buttons{
+            display:flex;
+            gap:20px;
+            flex-wrap:wrap;
+            justify-content:center;
+        }
 
-@media(max-width:768px){
-    .container{
-        flex-direction:column;
-    }
-    .left, .right{
-        width:100%;
-        padding:30px 20px;
-    }
-    .left h1{
-        font-size:24px;
-    }
-    .left p{
-        font-size:14px;
-    }
-    .btn{
-        font-size:14px;
-        padding:10px;
-    }
-}
+        .btn{
+            background:#00b894;
+            color:white;
+            text-decoration:none;
+            padding:15px 30px;
+            border-radius:8px;
+            font-size:18px;
+            transition:.3s;
+        }
 
-@media(max-width:480px){
-    body{
-        min-height:100vh;
-        padding:10px;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-    }
-    .container{
-        margin:auto;
-        border-radius:15px;
-        width:100%;
-        max-width:420px;
-    }
-    .left, .right{
-        padding:20px 15px;
-    }
-    .left h1{
-        font-size:20px;
-        margin-bottom:15px;
-    }
-    .left p{
-        font-size:13px;
-        line-height:20px;
-    }
-    .right h2{
-        font-size:18px;
-    }
-    .right p{
-        margin-bottom:20px;
-        font-size:13px;
-    }
-    .btn{
-        font-size:13px;
-        padding:10px;
-        margin:10px 0;
-    }
-    .footer{
-        margin-top:20px;
-        font-size:12px;
-    }
-}
+        .btn:hover{
+            background:#019875;
+            transform:scale(1.05);
+        }
 
-</style>
+        footer{
+            text-align:center;
+            color:white;
+            padding:15px;
+            background:rgba(0,90,150,0.8);
+        }
+
+        @media(max-width:768px){
+
+            nav{
+                flex-direction:column;
+                padding:20px;
+            }
+
+            nav ul{
+                margin-top:15px;
+                flex-direction:column;
+                text-align:center;
+            }
+
+            nav ul li{
+                margin:10px 0;
+            }
+
+            .content h1{
+                font-size:38px;
+            }
+
+            .content p{
+                font-size:18px;
+            }
+        }
+
+    </style>
 
 </head>
 
 <body>
 
-<div class="container">
+<div class="overlay">
 
-<div class="left">
+    <nav>
 
-<h1> Hospital Appointment System</h1>
+        <div class="logo">
+            🏥HOSPITAL  APPOINTMENT  SYSTEM
+        </div>
 
-<p>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="doctor_login.html">Doctors</a></li>
+            <li><a href="patient_register.html">patients</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
 
-Book appointments easily, connect patients with doctors, and manage healthcare services online.
+    </nav>
 
-</p>
+    <div class="content">
 
-</div>
+        <h1>Hospital Appointment System</h1>
 
-<div class="right">
+        <p>
+            Welcome to MediCare Hospital. Book appointments with qualified doctors,
+            manage your medical records, and receive quality healthcare anytime,
+            anywhere.
+        </p>
 
-<h2>Welcome</h2>
+        <div class="buttons">
 
-<p>Select how you want to register</p>
+            <a href="appointment.html" class="btn">
+                Book Appointment
+            </a>
 
-<a href="patient_register.html" class="btn">
- REQUEST AN APPOINTMENT
-</a>
+            <a href="patient_register.html" class="btn">
+                Register as Patient
+            </a>
 
-<a href="doctor_register.html" class="btn">
- Register as Doctor
-</a>
+            <a href="doctor_register.html" class="btn">
+                Register as Doctor
+            </a>
 
-<a href="login.htm" class="btn">
- Sign in
-</a>
-<div class="footer">
+        </div>
 
-Fast  Secure  Easy
+    </div>
 
-</div>
-
-</div>
+    <footer>
+        © 2026 | Hospital Appointment System
+    </footer>
 
 </div>
 
